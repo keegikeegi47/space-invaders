@@ -1,5 +1,4 @@
 #see programm teeb space invaders mängu
-#osa koodist on võetud Tech With Tim pygame'i tutorialite videotest
 
 import pygame
 pygame.init()
@@ -83,7 +82,7 @@ class nurkvasak():
         self.width = width
         self.height = height
         self.eluCount = 0
-        self.hitbox = (self.x, self.y,25,25)
+        self.hitbox = (self.x, self.y,24,24)
         
     def draw(self,aken):
         if self.eluCount == 0:
@@ -95,7 +94,7 @@ class nurkvasak():
                 aken.blit(self.nurkkatki2, (self.x,self.y))
             elif self.eluCount == 3:
                 aken.blit(self.nurkkatki3, (self.x,self.y))
-        self.hitbox = (self.x, self.y,25,25)
+        self.hitbox = (self.x, self.y,24,24)
         #pygame.draw.rect(aken, (255,0,0), self.hitbox,2)
         
     def sainpihta(self):
@@ -114,7 +113,7 @@ class nurkparem():
         self.width = width
         self.height = height
         self.eluCount = 0
-        self.hitbox = (self.x, self.y,25,25)
+        self.hitbox = (self.x, self.y,24,24)
         
     def draw(self,aken):
         if self.eluCount == 0:
@@ -126,7 +125,7 @@ class nurkparem():
                 aken.blit(self.nurkkatki2, (self.x,self.y))
             elif self.eluCount == 3:
                 aken.blit(self.nurkkatki3, (self.x,self.y))
-        self.hitbox = (self.x, self.y,25,25)
+        self.hitbox = (self.x, self.y,24,24)
         #pygame.draw.rect(aken, (255,0,0), self.hitbox,2)
         
     def sainpihta(self):
@@ -154,6 +153,26 @@ def joonistamajad():
     maja2_8.draw(aken)
     nurkvasak2.draw(aken)
     nurkparem2.draw(aken)
+    maja3_1.draw(aken)
+    maja3_2.draw(aken)
+    maja3_3.draw(aken)
+    maja3_4.draw(aken)
+    maja3_5.draw(aken)
+    maja3_6.draw(aken)
+    maja3_7.draw(aken)
+    maja3_8.draw(aken)
+    nurkvasak3.draw(aken)
+    nurkparem3.draw(aken)
+    maja4_1.draw(aken)
+    maja4_2.draw(aken)
+    maja4_3.draw(aken)
+    maja4_4.draw(aken)
+    maja4_5.draw(aken)
+    maja4_6.draw(aken)
+    maja4_7.draw(aken)
+    maja4_8.draw(aken)
+    nurkvasak4.draw(aken)
+    nurkparem4.draw(aken)
             
 
 #NÄHTAV OSA MÄNGUST
@@ -178,6 +197,7 @@ maja1_7 = klots(125,425,25,25)
 maja1_8 = klots(125,450,25,25)
 nurkvasak1 = nurkvasak(75,425,25,25)
 nurkparem1 = nurkparem(100,425,25,25)
+
 maja2_1 = klots(250,450,25,25)
 maja2_2 = klots(250,425,25,25)
 maja2_3 = klots(250,400,25,25)
@@ -188,6 +208,29 @@ maja2_7 = klots(325,425,25,25)
 maja2_8 = klots(325,450,25,25)
 nurkvasak2 = nurkvasak(275,425,25,25)
 nurkparem2 = nurkparem(300,425,25,25)
+
+maja3_1 = klots(450,450,25,25)
+maja3_2 = klots(450,425,25,25)
+maja3_3 = klots(450,400,25,25)
+maja3_4 = klots(475,400,25,25)
+maja3_5 = klots(500,400,25,25)
+maja3_6 = klots(525,400,25,25)
+maja3_7 = klots(525,425,25,25)
+maja3_8 = klots(525,450,25,25)
+nurkvasak3 = nurkvasak(475,425,25,25)
+nurkparem3 = nurkparem(500,425,25,25)
+
+maja4_1 = klots(650,450,25,25)
+maja4_2 = klots(650,425,25,25)
+maja4_3 = klots(650,400,25,25)
+maja4_4 = klots(675,400,25,25)
+maja4_5 = klots(700,400,25,25)
+maja4_6 = klots(725,400,25,25)
+maja4_7 = klots(725,425,25,25)
+maja4_8 = klots(725,450,25,25)
+nurkvasak4 = nurkvasak(675,425,25,25)
+nurkparem4 = nurkparem(700,425,25,25)
+
 bullets = []
 
 run = True #alustab loopi
@@ -202,6 +245,7 @@ while run: #kui loop käib:
     for bullet in bullets:
         #kui lastava bloki eluCount on väiksem kui 4(ehk ta on veel elus) JA kuul
         #puudutab bloki hitboxi, siis saab blokk pihta ja kuul läheb katki
+        #1 maja
         if maja1_1.eluCount < 4 and bullet.y - bullet.radius < maja1_1.hitbox[1] + maja1_1.hitbox[3] and bullet.y + bullet.radius > maja1_1.hitbox[1]:
             if bullet.x + bullet.radius > maja1_1.hitbox[0] and bullet.x - bullet.radius < maja1_1.hitbox[0] + maja1_1.hitbox[2]:
                 maja1_1.sainpihta()
@@ -234,7 +278,7 @@ while run: #kui loop käib:
             if bullet.x + bullet.radius > maja1_8.hitbox[0] and bullet.x - bullet.radius < maja1_8.hitbox[0] + maja1_8.hitbox[2]:
                 maja1_8.sainpihta()
                 bullets.pop(bullets.index(bullet))
-        
+        #2 maja
         if maja2_1.eluCount < 4 and bullet.y - bullet.radius < maja2_1.hitbox[1] + maja2_1.hitbox[3] and bullet.y + bullet.radius > maja2_1.hitbox[1]:
             if bullet.x + bullet.radius > maja2_1.hitbox[0] and bullet.x - bullet.radius < maja2_1.hitbox[0] + maja2_1.hitbox[2]:
                 maja2_1.sainpihta()
@@ -268,15 +312,84 @@ while run: #kui loop käib:
                 maja2_8.sainpihta()
                 bullets.pop(bullets.index(bullet))
                 
+        #3 maja
+        if maja3_1.eluCount < 4 and bullet.y - bullet.radius < maja3_1.hitbox[1] + maja3_1.hitbox[3] and bullet.y + bullet.radius > maja3_1.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_1.hitbox[0] and bullet.x - bullet.radius < maja3_1.hitbox[0] + maja3_1.hitbox[2]:
+                maja3_1.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_2.eluCount < 4 and bullet.y - bullet.radius < maja3_2.hitbox[1] + maja3_2.hitbox[3] and bullet.y + bullet.radius > maja3_2.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_2.hitbox[0] and bullet.x - bullet.radius < maja3_2.hitbox[0] + maja3_2.hitbox[2]:
+                maja3_2.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_3.eluCount < 4 and bullet.y - bullet.radius < maja3_3.hitbox[1] + maja3_3.hitbox[3] and bullet.y + bullet.radius > maja3_3.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_3.hitbox[0] and bullet.x - bullet.radius < maja3_3.hitbox[0] + maja3_3.hitbox[2]:
+                maja3_3.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_4.eluCount < 4 and bullet.y - bullet.radius < maja3_4.hitbox[1] + maja3_4.hitbox[3] and bullet.y + bullet.radius > maja3_4.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_4.hitbox[0] and bullet.x - bullet.radius < maja3_4.hitbox[0] + maja3_4.hitbox[2]:
+                maja3_4.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_5.eluCount < 4 and bullet.y - bullet.radius < maja3_5.hitbox[1] + maja3_5.hitbox[3] and bullet.y + bullet.radius > maja3_5.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_5.hitbox[0] and bullet.x - bullet.radius < maja3_5.hitbox[0] + maja3_5.hitbox[2]:
+                maja3_5.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_6.eluCount < 4 and bullet.y - bullet.radius < maja3_6.hitbox[1] + maja3_6.hitbox[3] and bullet.y + bullet.radius > maja3_6.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_6.hitbox[0] and bullet.x - bullet.radius < maja3_6.hitbox[0] + maja3_6.hitbox[2]:
+                maja3_6.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_7.eluCount < 4 and bullet.y - bullet.radius < maja3_7.hitbox[1] + maja3_7.hitbox[3] and bullet.y + bullet.radius > maja3_7.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_7.hitbox[0] and bullet.x - bullet.radius < maja3_7.hitbox[0] + maja3_7.hitbox[2]:
+                maja3_7.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja3_8.eluCount < 4 and bullet.y - bullet.radius < maja3_8.hitbox[1] + maja3_8.hitbox[3] and bullet.y + bullet.radius > maja3_8.hitbox[1]:
+            if bullet.x + bullet.radius > maja3_8.hitbox[0] and bullet.x - bullet.radius < maja3_8.hitbox[0] + maja3_8.hitbox[2]:
+                maja3_8.sainpihta()
+                bullets.pop(bullets.index(bullet))
+                
+        #4 maja
+        if maja4_1.eluCount < 4 and bullet.y - bullet.radius < maja4_1.hitbox[1] + maja4_1.hitbox[3] and bullet.y + bullet.radius > maja4_1.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_1.hitbox[0] and bullet.x - bullet.radius < maja4_1.hitbox[0] + maja4_1.hitbox[2]:
+                maja4_1.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_2.eluCount < 4 and bullet.y - bullet.radius < maja4_2.hitbox[1] + maja4_2.hitbox[3] and bullet.y + bullet.radius > maja4_2.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_2.hitbox[0] and bullet.x - bullet.radius < maja4_2.hitbox[0] + maja4_2.hitbox[2]:
+                maja4_2.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_3.eluCount < 4 and bullet.y - bullet.radius < maja4_3.hitbox[1] + maja4_3.hitbox[3] and bullet.y + bullet.radius > maja4_3.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_3.hitbox[0] and bullet.x - bullet.radius < maja4_3.hitbox[0] + maja4_3.hitbox[2]:
+                maja4_3.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_4.eluCount < 4 and bullet.y - bullet.radius < maja4_4.hitbox[1] + maja4_4.hitbox[3] and bullet.y + bullet.radius > maja4_4.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_4.hitbox[0] and bullet.x - bullet.radius < maja4_4.hitbox[0] + maja4_4.hitbox[2]:
+                maja4_4.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_5.eluCount < 4 and bullet.y - bullet.radius < maja4_5.hitbox[1] + maja4_5.hitbox[3] and bullet.y + bullet.radius > maja4_5.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_5.hitbox[0] and bullet.x - bullet.radius < maja4_5.hitbox[0] + maja4_5.hitbox[2]:
+                maja4_5.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_6.eluCount < 4 and bullet.y - bullet.radius < maja4_6.hitbox[1] + maja4_6.hitbox[3] and bullet.y + bullet.radius > maja4_6.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_6.hitbox[0] and bullet.x - bullet.radius < maja4_6.hitbox[0] + maja4_6.hitbox[2]:
+                maja4_6.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_7.eluCount < 4 and bullet.y - bullet.radius < maja4_7.hitbox[1] + maja4_7.hitbox[3] and bullet.y + bullet.radius > maja4_7.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_7.hitbox[0] and bullet.x - bullet.radius < maja4_7.hitbox[0] + maja4_7.hitbox[2]:
+                maja4_7.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if maja4_8.eluCount < 4 and bullet.y - bullet.radius < maja4_8.hitbox[1] + maja4_8.hitbox[3] and bullet.y + bullet.radius > maja4_8.hitbox[1]:
+            if bullet.x + bullet.radius > maja4_8.hitbox[0] and bullet.x - bullet.radius < maja4_8.hitbox[0] + maja4_8.hitbox[2]:
+                maja4_8.sainpihta()
+                bullets.pop(bullets.index(bullet))
+                
+        
+        #esimese maja nurgad     
         if nurkvasak1.eluCount < 4 and bullet.y - bullet.radius < nurkvasak1.hitbox[1] + nurkvasak1.hitbox[3] and bullet.y + bullet.radius > nurkvasak1.hitbox[1]:
             if bullet.x + bullet.radius > nurkvasak1.hitbox[0] and bullet.x - bullet.radius < nurkvasak1.hitbox[0] + nurkvasak1.hitbox[2]:
                 nurkvasak1.sainpihta()
-                bullets.pop(bullets.index(bullet))
         if nurkparem1.eluCount < 4 and bullet.y - bullet.radius < nurkparem1.hitbox[1] + nurkparem1.hitbox[3] and bullet.y + bullet.radius > nurkparem1.hitbox[1]:
             if bullet.x + bullet.radius > nurkparem1.hitbox[0] and bullet.x - bullet.radius < nurkparem1.hitbox[0] + nurkparem1.hitbox[2]:
                 nurkparem1.sainpihta()
                 bullets.pop(bullets.index(bullet))
-                
+        #teise maja nurgad     
         if nurkvasak2.eluCount < 4 and bullet.y - bullet.radius < nurkvasak2.hitbox[1] + nurkvasak2.hitbox[3] and bullet.y + bullet.radius > nurkvasak2.hitbox[1]:
             if bullet.x + bullet.radius > nurkvasak2.hitbox[0] and bullet.x - bullet.radius < nurkvasak2.hitbox[0] + nurkvasak2.hitbox[2]:
                 nurkvasak2.sainpihta()
@@ -284,6 +397,24 @@ while run: #kui loop käib:
         if nurkparem2.eluCount < 4 and bullet.y - bullet.radius < nurkparem2.hitbox[1] + nurkparem2.hitbox[3] and bullet.y + bullet.radius > nurkparem2.hitbox[1]:
             if bullet.x + bullet.radius > nurkparem2.hitbox[0] and bullet.x - bullet.radius < nurkparem2.hitbox[0] + nurkparem2.hitbox[2]:
                 nurkparem2.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        #kolmanda maja nurgad
+        if nurkvasak3.eluCount < 4 and bullet.y - bullet.radius < nurkvasak3.hitbox[1] + nurkvasak3.hitbox[3] and bullet.y + bullet.radius > nurkvasak3.hitbox[1]:
+            if bullet.x + bullet.radius > nurkvasak3.hitbox[0] and bullet.x - bullet.radius < nurkvasak3.hitbox[0] + nurkvasak3.hitbox[2]:
+                nurkvasak3.sainpihta()
+                bullets.pop(bullets.index(bullet))       
+        if nurkparem3.eluCount < 4 and bullet.y - bullet.radius < nurkparem3.hitbox[1] + nurkparem3.hitbox[3] and bullet.y + bullet.radius > nurkparem3.hitbox[1]:
+            if bullet.x + bullet.radius > nurkparem3.hitbox[0] and bullet.x - bullet.radius < nurkparem3.hitbox[0] + nurkparem3.hitbox[2]:
+                nurkparem3.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        #neljanda maja nurgad
+        if nurkvasak4.eluCount < 4 and bullet.y - bullet.radius < nurkvasak4.hitbox[1] + nurkvasak4.hitbox[3] and bullet.y + bullet.radius > nurkvasak4.hitbox[1]:
+            if bullet.x + bullet.radius > nurkvasak4.hitbox[0] and bullet.x - bullet.radius < nurkvasak4.hitbox[0] + nurkvasak4.hitbox[2]:
+                nurkvasak4.sainpihta()
+                bullets.pop(bullets.index(bullet))
+        if nurkparem4.eluCount < 4 and bullet.y - bullet.radius < nurkparem4.hitbox[1] + nurkparem4.hitbox[3] and bullet.y + bullet.radius > nurkparem4.hitbox[1]:
+            if bullet.x + bullet.radius > nurkparem4.hitbox[0] and bullet.x - bullet.radius < nurkparem4.hitbox[0] + nurkparem4.hitbox[2]:
+                nurkparem4.sainpihta()
                 bullets.pop(bullets.index(bullet))
                 
         

@@ -1,2 +1,0 @@
-from majad import joonistamajad
-
